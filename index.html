@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Les Petits Plats</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="body">
+
+  <header class="hero">
+    <img src="assets/landing-img.png" alt="" class="hero-background" />
+
+    <img src="assets/Logo.png" alt="Les Petits Plats" class="logo" />
+
+    <div class="hero-content">
+      <h1 class="hero-title">
+        CHERCHEZ PARMI PLUS DE 1500 RECETTES<br>
+        DU QUOTIDIEN, SIMPLES ET DÉLICIEUSES
+      </h1>
+      <div class="search-bar">
+        <input
+          type="text"
+          id="searchInput"
+          class="search-input"
+          placeholder="Rechercher une recette, un ingrédient..."
+        />
+        <button class="search-button" aria-label="Rechercher">
+          <img src="assets/search-icon.png" alt="Rechercher" />
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+  <main class="main">
+
+    <section class="filters">
+      <select class="filter-dropdown" id="ingredients-filter">
+        <option>Ingrédients</option>
+      </select>
+      <select class="filter-dropdown" id="appliances-filter">
+        <option>Appareils</option>
+      </select>
+      <select class="filter-dropdown" id="ustensils-filter">
+        <option>Ustensiles</option>
+      </select>
+      <span class="results-count">1500 recettes</span>
+    </section>
+
+    <section id="recipesContainer" class="recipes-grid">
+      <!-- Les cartes seront injectées ici -->
+    </section>
+
+  </main>
+
+  <script type="module" src="scripts/index.js"></script>
+</body>
+</html>
