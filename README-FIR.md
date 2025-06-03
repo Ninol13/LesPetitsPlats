@@ -57,6 +57,11 @@ function searchWithLoops(recipes, query) {
   return results;
 }
 ```
+---
+
+## Algorigramme de recherche
+
+![alt text](6bb6b0e4-5fd6-4450-b757-8141c14cd3dc.png)
 
 ---
 
