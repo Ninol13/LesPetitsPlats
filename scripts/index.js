@@ -1,30 +1,52 @@
 import { recipes } from "../data/recipes.js";
+import { createRecipeCard } from "../scripts/components/recipe_card.js";
 
-const container = document.getElementById("recipesContainer");
+let recipeCardDoic = document.querySelector("#recipe-container");
+export let myData = [];
 
-function renderRecipes(list) {
-  container.innerHTML = "";
+/* ---*---*---*---*---*---*---*---*---*---*---*---*---*---*--- */
+/*     Crée et ajoute chaque carte recette dans le conteneur   */
+/* ---*---*---*---*---*---*---*---*---*---*---*---*---*---*--- */
+recipes.forEach((recipe) => {
+    myData.push(recipe);
+    const recipeCard = createRecipeCard({
+        imageUrl: `./assets/imgs/${recipe.image}`,
+        prepTime: recipe.time,
+        title: recipe.name,
+        description: recipe.description,
+        ingredients: recipe.ingredients,
+    });
+    recipeCardDoic.appendChild(recipeCard);
+});
+console.log(myData);
 
-  list.forEach(recipe => {
-    const card = document.createElement("div");
-    card.className = "col-md-4";
 
-    card.innerHTML = `
-      <div class="card h-100 shadow">
-        <img src="assets/JSON recipes/${recipe.image}" class="card-img-top" alt="${recipe.name}">
-        <div class="card-body">
-          <h5 class="card-title">${recipe.name}</h5>
-          <p class="card-text text-truncate">${recipe.description}</p>
-        </div>
-        <div class="card-footer text-muted d-flex justify-content-between">
-          <span>${recipe.time} min</span>
-          <span>${recipe.servings} pers</span>
-        </div>
-      </div>
-    `;
+/* ---*---*---*---*---*---*---*---*---*---*---*---*---*---*--- */
+/*                 Affiche le nombre de recettes               */
+/* ---*---*---*---*---*---*---*---*---*---*---*---*---*---*--- */
+let nbr = document.querySelector(".recettes-nbr p");
+nbr.textContent = myData.length + " Recettes";
 
-    container.appendChild(card);
-  });
-}
 
-renderRecipes(recipes);
+/* ---*---*---*---*---*---*---*---*---*---*---*---*---*---*--- */
+/*   Gère l'ouverture/fermeture des menus déroulants (filtres) */
+/* ---*---*---*---*---*---*---*---*---*---*---*---*---*---*--- */
+document.addEventListener("DOMContentLoaded", function () {
+    const filterBoxes = document.querySelectorAll(".filter-box");
+
+    filterBoxes.forEach((box) => {
+        const titleDiv = box.querySelector(".dropdown-title");
+        const ul = box.querySelector("ul");
+        const icon = titleDiv.querySelector("i");
+        titleDiv.addEventListener("click", function () {
+            if (icon.style.transform === "rotate(180deg)") {
+                icon.style.transform = "rotate(0deg)";
+            } else {
+                icon.style.transform = "rotate(180deg)";
+            }
+
+            ul.style.visibility =
+                ul.style.visibility === "visible" ? "hidden" : "visible";
+        });
+    });
+});
