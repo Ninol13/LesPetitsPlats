@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (searchQuery.length >= 3 || searchQuery.length === 0) {
             // Choix de l'algorithme de recherche (ici fonctionnel)
-            filteredData = searchFunctional(recipes, searchQuery);
+            filteredData = searchWithLoops(recipes, searchQuery);
             filteredData = applyAllActiveTags(filteredData);
             // Met à jour le tableau global avec les résultats filtrés
             myData.length = 0;
