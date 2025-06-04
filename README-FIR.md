@@ -77,14 +77,14 @@ Les deux algorithmes ont été testés sur jsben.ch avec un échantillon de 30 r
 
 | Algorithme           | Ops/sec (± marge) | Observations                            |
 |----------------------|-------------------|-----------------------------------------|
-| Fonctionnel (filter) | 1154228           | Plus rapide                             |
-| Boucles classiques   |  721790           | Plus lent                               |
+| Fonctionnel (filter) |  205747           | Plus lent                               |
+| Boucles classiques   |  217481           | Plus rapide                             |
 
 ---
 
 ## ✅ Conclusion
 
-L’algorithme retenu est la version fonctionnelle utilisant `filter`, `some` et `includes`.
-Il est plus performant et plus lisible que la version avec boucles classiques.
+L’algorithme retenu est la version avec boucles classiques car elle est plus rapide en termes de performances.
+Bien que la version fonctionnelle soit plus concise et élégante, elle est moins performante pour des jeux de données plus importants.
 
 ---
